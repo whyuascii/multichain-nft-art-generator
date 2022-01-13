@@ -1,0 +1,46 @@
+{
+  "name": "multichain-nft-art-generator",
+  "version": "1.0.0",
+  "description": "NFT art generator",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc index.js",
+    "generate": "tsc index.js",
+    "rarity": "tsc utils/rarity.js",
+    "preview": "tsc utils/preview.js",
+    "pixelate": "tsc utils/pixelate.js",
+    "update_info": "tsc utils/update_info.js",
+    "preview_gif": "tsc utils/preview_gif.js",
+    "generate_metadata": "tsc utils/generate_metadata.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eiab30p/multichain-nft-art-generator.git"
+  },
+  "keywords": [
+    "nft",
+    "art",
+    "generator",
+    "sol",
+    "eth",
+    "solana",
+    "ethereum"
+  ],
+  "author": "WhyUAscii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eiab30p/multichain-nft-art-generator/issues"
+  },
+  "homepage": "https://github.com/eiab30p/multichain-nft-art-generator#readme",
+  "dependencies": {
+    "@types/sha1": "^1.1.3",
+    "canvas": "^2.8.0",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@typescript-eslint/parser": "^5.9.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
