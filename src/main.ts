@@ -38,9 +38,8 @@ const DNA_DELIMITER = "-";
  */
 export const buildSetup = () => {
   if (fs.existsSync(buildDir)) {
-    fs.rmdirSync(buildDir, { recursive: true });
+    fs.rmSync(buildDir, { recursive: true });
   }
-  fs.mkdirSync(buildDir);
   fs.mkdirSync(buildDir);
   fs.mkdirSync(`${buildDir}/json`);
   fs.mkdirSync(`${buildDir}/images`);
@@ -173,6 +172,7 @@ const drawBackground = () => {
 const addMetadata = (_dna, _edition) => {
   let dateTime = Date.now();
   let tempMetadata: any = {};
+
   tempMetadata = {
     name: `${projectConst.namePrefix} #${_edition}`,
     description: projectConst.description,
@@ -182,8 +182,9 @@ const addMetadata = (_dna, _edition) => {
     date: dateTime,
     ...projectConst.extraMetadata,
     attributes: attributesList,
-    compiler: "HashLips Art Engine",
+    compiler: "WhyUAscii Art Engine",
   };
+
   if (projectConst.network == projectConst.NETWORK.sol) {
     tempMetadata = {
       //Added metadata for solana
@@ -210,6 +211,7 @@ const addMetadata = (_dna, _edition) => {
       },
     };
   }
+
   metadataList.push(tempMetadata);
   attributesList = [];
 };
@@ -239,21 +241,6 @@ const loadLayerImg = async (_layer) => {
 };
 
 /**
- * FIX ME
- * @param _sig
- * @param x
- * @param y
- * @param size
- */
-const addText = (_sig, x, y, size) => {
-  ctx.fillStyle = projectConst.text.color;
-  ctx.font = `${projectConst.text.weight} ${size}pt ${projectConst.text.family}`;
-  ctx.textBaseline = projectConst.text.baseline as CanvasTextBaseline;
-  ctx.textAlign = projectConst.text.align as CanvasTextAlign;
-  ctx.fillText(_sig, x, y);
-};
-
-/**
  *
  * @param _renderObject
  * @param _index
@@ -262,20 +249,13 @@ const addText = (_sig, x, y, size) => {
 const drawElement = (_renderObject, _index, _layersLen) => {
   ctx.globalAlpha = _renderObject.layer.opacity;
   ctx.globalCompositeOperation = _renderObject.layer.blend;
-  projectConst.text.only
-    ? addText(
-        `${_renderObject.layer.name}${projectConst.text.spacer}${_renderObject.layer.selectedElement.name}`,
-        projectConst.text.xGap,
-        projectConst.text.yGap * (_index + 1),
-        projectConst.text.size
-      )
-    : ctx.drawImage(
-        _renderObject.loadedImage,
-        0,
-        0,
-        projectConst.format.width,
-        projectConst.format.height
-      );
+  ctx.drawImage(
+    _renderObject.loadedImage,
+    0,
+    0,
+    projectConst.format.width,
+    projectConst.format.height
+  );
 
   addAttributes(_renderObject);
 };

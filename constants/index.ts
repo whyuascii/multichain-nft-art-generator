@@ -1,3 +1,4 @@
+// List of different blending modes that you can optionally use.
 export const MODE = {
   sourceOver: "source-over",
   sourceIn: "source-in",
@@ -27,6 +28,7 @@ export const MODE = {
   luminosity: "luminosity",
 };
 
+// Network options
 export const NETWORK = {
   eth: "eth",
   sol: "sol",

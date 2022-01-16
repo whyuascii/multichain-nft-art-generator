@@ -1,5 +1,5 @@
-const GifEncoder = require("gif-encoder-2");
-const { writeFile } = require("fs");
+import * as fs from "fs";
+import GifEncoder from "gif-encoder-2";
 
 /**
  *
@@ -41,7 +41,7 @@ export class Giffer {
   stop = () => {
     this.gifEncoder.finish();
     const buffer = this.gifEncoder.out.getData();
-    writeFile(this.fileName, buffer, (error) => {});
+    fs.writeFile(this.fileName, buffer, (error) => {});
     console.log(`Created gif located at ${this.fileName}`);
   };
 }

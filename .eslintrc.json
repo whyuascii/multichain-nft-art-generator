@@ -9,6 +9,13 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
-    "no-console": 1 // Remember, this means error!
+    "no-console": 1, // Remember, this means error!
+    "max-line-length": [
+      true,
+      {
+        "limit": 120,
+        "ignore-pattern": "^import [^,]+ from |^export | implements"
+      }
+    ]
   }
 }
