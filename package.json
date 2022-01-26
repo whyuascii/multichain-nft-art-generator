@@ -8,7 +8,6 @@
     "generate": "npx ts-node index.ts",
     "rarity": "npx ts-node utils/rarity.ts",
     "preview": "npx ts-node utils/preview.ts",
-    "pixelate": "npx ts-node utils/pixelate.ts",
     "update_info": "npx ts-node utils/update_info.ts",
     "preview_gif": "npx ts-node utils/preview_gif.ts",
     "generate_metadata": "npx ts-node utils/generate_metadata.ts"
